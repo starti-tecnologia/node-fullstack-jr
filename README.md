@@ -24,6 +24,7 @@ Backend:
 Frontend:
     VueJS/ReactJS/Angular
         -(VueJS + NuxtJS será um diferencial)
+    CSS/SCSS (TailwindCSS será um diferencial)
 ```
 
 ### Entrega
