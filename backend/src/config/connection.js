@@ -7,7 +7,6 @@ const password = process.env.DB_PASSWORD;
 const dialect  = process.env.DB_DIALECT;
 const host     = process.env.DB_HOST;
 
-
 const connection = new Sequelize(database, username, password, {
     host, 
     dialect

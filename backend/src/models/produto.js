@@ -9,19 +9,19 @@ class Produto extends Model{
                     autoIncrement: true,
                     allowNull: false,
                     primaryKey: true
-                },
-                nome: {
-                    type: Sequelize.STRING,
-                    allowNull: false,
-                },
-                valor_unitario: {
-                    type: Sequelize.DECIMAL,
-                    allowNull: false,
-                },
-                quantidade: {
-                    type: Sequelize.INTEGER,
-                    default: 0,
-                }
+                  },
+                  nome: {
+                      type: Sequelize.STRING,
+                      allowNull: false,
+                  },
+                  valor_unitario: {
+                      type: Sequelize.DOUBLE(10,2),
+                      allowNull: false,
+                  },
+                  quantidade: {
+                      type: Sequelize.INTEGER,
+                      default: 0,
+                  }
             },
             {
                 sequelize
