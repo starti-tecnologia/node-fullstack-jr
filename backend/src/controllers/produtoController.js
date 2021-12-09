@@ -59,7 +59,7 @@ module.exports = {
    async deletarProduto(req,res){
       try{
          await sequelizeConnection.query(
-            `DELETE * FROM produtos WHERE id = ${req.params.id}`
+            `DELETE FROM produtos WHERE id = ${req.params.id}`
          );
          return res.sendStatus(200);
       }catch(err){
