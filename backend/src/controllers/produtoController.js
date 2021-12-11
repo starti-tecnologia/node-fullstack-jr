@@ -13,7 +13,6 @@ module.exports = {
          `);
          return res.sendStatus(200);
       } catch(err){
-         console.log(err)
          return [res.sendStatus(400), err];
       }  
    },
@@ -35,7 +34,6 @@ module.exports = {
          const [produtos, _] = await sequelizeConnection.query(`
             SELECT * FROM produtos WHERE id = ${req.params.id}
          `);
-         
          return res.send(produtos);
       } catch(err){
          return [res.sendStatus(400), err];

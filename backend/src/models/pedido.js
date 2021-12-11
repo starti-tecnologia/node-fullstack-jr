@@ -23,12 +23,12 @@ class Pedido extends Model{
                     allowNull: false,
                 },
                 status: {
-                    type: Sequelize.ENUM('pago', 'cancelado'),
+                    type: Sequelize.ENUM('em aberto', 'pago', 'cancelado'),
                     allowNull: false,
                 }
             },
             {
-                sequelize
+                sequelize,
             }
         );
         return this;
