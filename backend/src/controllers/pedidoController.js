@@ -10,7 +10,7 @@ module.exports = {
         try{
             [_,pedido] = await sequelizeConnection.query(`SELECT * FROM pedidos WHERE num_pedido = ${req.params.id}`)
             await sequelizeConnection.query(`
-                UPDATE pedidos SET nome_cliente = '${nome_cliente ?? pedido[0].nome_cliente}', email = '${email ?? pedido[0].email}', produtos = '${produtos ?? pedido[0].produtos}', status = '${status}' WHERE num_pedido = ${req.params.id}
+                UPDATE pedidos SET nome_cliente = '${nome_cliente ?? pedido[0].nome_cliente}', email = '${email ?? pedido[0].email}', produtos = '[${produtos ?? pedido[0].produtos}]', status = '${status}' WHERE num_pedido = ${req.params.id}
             `);
             return res.sendStatus(200);
         } catch(err){
@@ -73,10 +73,14 @@ module.exports = {
    async deletarPedido(req,res){
       try{
          await sequelizeConnection.query(
+            `DELETE FROM produtos_pedidos WHERE num_pedido = ${req.params.id}`
+         );
+         await sequelizeConnection.query(
             `DELETE FROM pedidos WHERE num_pedido = ${req.params.id}`
          );
          return res.sendStatus(200);
       }catch(err){
+         console.log(err);
          return [res.sendStatus(500), err]
       }
    }

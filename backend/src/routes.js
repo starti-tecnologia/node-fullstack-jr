@@ -5,23 +5,23 @@ const pedidoController = require('./controllers/pedidoController')
 
 router.get('/produtos', produtoController.buscarTodosProdutos)
 
-router.get('/produto/:id', produtoController.buscarProduto)
+router.get('/produtos/:id', produtoController.buscarProduto)
 
-router.post('/novoProduto', produtoController.criarProduto)
+router.post('/produtos', produtoController.criarProduto)
 
-router.put('/produto/:id', produtoController.editarProduto)
+router.put('/produtos/:id', produtoController.editarProduto)
 
-router.delete('/produto/:id', produtoController.deletarProduto)
+router.delete('/produtos/:id', produtoController.deletarProduto)
 
 
 router.get('/pedidos', pedidoController.buscarTodosPedidos)
 
-router.get('/pedido/:id', pedidoController.buscarPedido)
+router.get('/pedidos/:id', pedidoController.buscarPedido)
 
-router.post('/novoPedido', pedidoController.criarPedido)
+router.post('/pedidos', pedidoController.criarPedido)
 
-router.put('/pedido/:id', pedidoController.editarPedido)
+router.put('/pedidos/:id', pedidoController.editarPedido)
 
-router.delete('/pedido/:id', pedidoController.deletarPedido)
+router.delete('/pedidos/:id', pedidoController.deletarPedido)
 
 module.exports = router
