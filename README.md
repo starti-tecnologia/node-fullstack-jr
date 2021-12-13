@@ -1,47 +1,49 @@
-# Starti - CyberSecurity | Teste Desenvolvedor NodeJS FullStack Jr
+<div id="top"></div>
 
-## Introdução
-O desafio consiste em implementar uma aplicação Web utilizando Node.JS para API e Vue.JS/ReactJS/Angular para o Frontend, e um banco de dados relacional MySQL.
+## Sobre o Projeto
+Consiste no desenvolvimento de um site para realização de um crud de produtos e pedidos com MYSQL
+obedecendo as regras de dependência de cada tabela.
 
-Você vai criar uma aplicação de cadastro de pedidos de compra, com as seguintes funcionalidades:
+### Built With
 
-- CRUD de produtos (nome, valor_unitario, quantidade).
-- CRUD de pedidos de compra (Nome do Cliente, Numero do Pedido, Email, Produtos (múltiplo), Status (Em Aberto, Pago ou Cancelado)).
-  - Um pedido de compra com Status Pago e/ou Cancelado, não pode ser alterado.
-- Cada CRUD:
-  - deve possuir formulários para criação e atualização de seus itens.
-  - deve permitir a deleção de qualquer item de sua lista.
-- Barra de navegação entre os CRUDs.
+Aqui temos uma lista das tecnologias utilizados no projeto.
 
-### Requisitos
+* [Vue.js](https://vuejs.org)
+* [Vuetify.js](https://vuetifyjs.com/en/)
+* [Node.js](https://nodejs.org/en/)
+* [MySQL](https://www.mysql.com)
 
-```
-Backend:
-    Node.JS
-        - (qualquer framework, AdonisJS será um diferencial)
-    MySQL
-    
-Frontend:
-    VueJS/ReactJS/Angular
-        -(VueJS + NuxtJS será um diferencial)
-    CSS/SCSS (TailwindCSS será um diferencial)
-```
 
-### Entrega
+## Usando a aplicação
 
-- Para confirmar a participação, você deve agendar previamente uma data para entrevista on-line com nosso CPO no link (https://calendly.com/stsec/entrevista-para-time-de-dev).
-  - Consideraremos essa data como a data de entrega do teste.
-- Após a marcação da data, faça um fork deste repositório; _**Não será possível fazer push no repositório se você cloná-lo.**_
-- Crie uma nova branch;
-- Altere o arquivo README.md com as informações necessárias para executar o seu teste (comandos, migrations, seeds, etc);
-- Depois de finalizado, envie-nos o pull request;
+### Instalação e utilização
 
-## O que iremos analisar
+_Segue abaixo como baixar, instalar as dependências e rodar a aplicação. Execute os comandos um por vez._
 
-- Organização do código;
-- Aplicação de design patterns;
-- Separação de módulos e componentes;
-- Legibilidade;
-- Criação do ambiente com Docker (se possível).
+1. Clone o repositório.
 
-### Boa sorte!
+2. Entre na pasta ./backend e configure o arquivo config.js caso necessário para o seu banco MySql.
+    ```sh
+    cd backend/src/config/
+    ```
+
+2. Entra na pasta ./backend e Instale os pacotes yarn e inicie.
+   ```sh
+   cd backend
+   yarn install
+   yarn dev
+   ```
+3. Entra na pasta ./frontend e Instale os pacotes YARN e inicie.
+   ```sh
+   cd frontend
+   yarn install 
+   yarn serve
+   ```
+4. Agora basta acessar no seu navegador `http://localhost:8080`
+
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+© 2021
