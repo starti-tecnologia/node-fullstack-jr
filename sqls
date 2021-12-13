@@ -1,0 +1,10 @@
+CREATE TABLE `testestarti`.`produtos` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(100) NOT NULL , `valor_unitario` FLOAT NOT NULL , `quantidade` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `testestarti`.`pedidos_compra` ( `id_pedido` INT NOT NULL AUTO_INCREMENT , `nomeCliente` VARCHAR(100) NOT NULL , `numeroPedido` INT NOT NULL , `email` VARCHAR(50) NOT NULL , `produtos` VARCHAR(200) NOT NULL , `status` VARCHAR(50) NOT NULL , PRIMARY KEY (`id_pedido`)) ENGINE = InnoDB;
+
+PORT=3333
+
+MYSQL_DB=testestarti
+MYSQL_USER=root
+MYSQL_PASSWORD=
+MYSQL_PORT=3306
