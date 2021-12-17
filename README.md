@@ -1,47 +1,55 @@
-# Starti - CyberSecurity | Teste Desenvolvedor NodeJS FullStack Jr
+Estrutura
 
-## Introdução
-O desafio consiste em implementar uma aplicação Web utilizando Node.JS para API e Vue.JS/ReactJS/Angular para o Frontend, e um banco de dados relacional MySQL.
+O back end está na pasta chamada de:
 
-Você vai criar uma aplicação de cadastro de pedidos de compra, com as seguintes funcionalidades:
+- nodejs-express-sequelize-mysql
+  
 
-- CRUD de produtos (nome, valor_unitario, quantidade).
-- CRUD de pedidos de compra (Nome do Cliente, Numero do Pedido, Email, Produtos (múltiplo), Status (Em Aberto, Pago ou Cancelado)).
-  - Um pedido de compra com Status Pago e/ou Cancelado, não pode ser alterado.
-- Cada CRUD:
-  - deve possuir formulários para criação e atualização de seus itens.
-  - deve permitir a deleção de qualquer item de sua lista.
-- Barra de navegação entre os CRUDs.
+O front end está na pasta chamada de:
 
-### Requisitos
+- vue-js-client-crud
+  
 
-```
-Backend:
-    Node.JS
-        - (qualquer framework, AdonisJS será um diferencial)
-    MySQL
+O back end roda na porta 8080. O front end roda na porta 8081.
+
+Tanto o front quanto o back end possuem seus respectivos arquivos **package.json**
+
+# Como executar o teste:
+
+1. Clone o repositório
+  
+2. Crie um banco de dados no MySQL chamado de "comprasDB"
+  
+3. Atravez do npm instale todas as dependências contindas tanto na pasta do font aquanto do back end
+  
+4. No arquivo `db.config.js` localizado em `nodejs-express-sequelize-mysql/app/config/db.config.js` adicione sua senha do MySQL na propriedade password (dessa forma o sequelize pode se comunicar com seu banco de dados)
+  
+  1. ```js
+    module.exports = {
+      HOST: "localhost",
+      USER: "root",
+      PASSWORD: process.env.SQL_KEY, // adicione sua senha
+      DB: "comprasDB",
+      dialect: "mysql",
+      pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+      }
+    };
+    ```
     
-Frontend:
-    VueJS/ReactJS/Angular
-        -(VueJS + NuxtJS será um diferencial)
-    CSS/SCSS (TailwindCSS será um diferencial)
-```
 
-### Entrega
+5. Dentro da pasta `nodejs-express-sequelize-mysql`, inicie o servidor do back end com o comando `node server.js` 
+  
+6. na pasta do front end (`vue-js-client-crud`) monte e suba o servidor com o comando `npm run serve` nesse momento o cli do vue deve compilar e rodar o front end localmente na porta 8081
+  
 
-- Para confirmar a participação, você deve agendar previamente uma data para entrevista on-line com nosso CPO no link (https://calendly.com/stsec/entrevista-para-time-de-dev).
-  - Consideraremos essa data como a data de entrega do teste.
-- Após a marcação da data, faça um fork deste repositório; _**Não será possível fazer push no repositório se você cloná-lo.**_
-- Crie uma nova branch;
-- Altere o arquivo README.md com as informações necessárias para executar o seu teste (comandos, migrations, seeds, etc);
-- Depois de finalizado, envie-nos o pull request;
+## Overvações
 
-## O que iremos analisar
+Esta é a primeira vez que trabalho com algum banco de dados relacional e MySQL especificamente, até então eu tinha tido experiência apenas com o MongoDB. Também foi a primeira vez que trabalhei com vue dessa forma. Para o vue meu conhecimento era muito supercifial, entendia como funcionavam as diretivas e nunca havia trabalhado com componentes por exemplo.
 
-- Organização do código;
-- Aplicação de design patterns;
-- Separação de módulos e componentes;
-- Legibilidade;
-- Criação do ambiente com Docker (se possível).
+Dessa forma para conseguir cumprir o desafio além das documentações de cada ferramente utilizada me basei no seguinte turorial
 
-### Boa sorte!
+- [Vue.js + Node.js + Express + MySQL example: Build a full-stack CRUD Application - BezKoder](https://www.bezkoder.com/vue-js-node-js-express-mysql-crud-example/#Configure_MySQL_database_038_Sequelize)
