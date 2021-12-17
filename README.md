@@ -24,7 +24,7 @@ Tanto o front quanto o back end possuem seus respectivos arquivos **package.json
   
 4. No arquivo `db.config.js` localizado em `nodejs-express-sequelize-mysql/app/config/db.config.js` adicione sua senha do MySQL na propriedade password (dessa forma o sequelize pode se comunicar com seu banco de dados)
   
-  1. ```js
+   ```js
     module.exports = {
       HOST: "localhost",
       USER: "root",
