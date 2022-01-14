@@ -1,4 +1,4 @@
-import Produto from "../app/models/Produto";
+import Product from "../app/models/Product";
 import httpStatus from 'http-status-codes';
 
 export default {
@@ -7,7 +7,7 @@ export default {
     let { name, valor, quantidade } = req;
     
     try {
-      const produto = await Produto.create({ name, valor, quantidade });
+      const produto = await Product.create({ name, valor, quantidade });
      
       return produto;
     } catch (error) {
@@ -18,12 +18,12 @@ export default {
   async findAll(req, res) {
     let id = req.pedidos_id;
     try {
-      const produto = await Produto.findAndCountAll({
+      const produto = await Product.findAndCountAll({
         where: { pedidos_id: id },
         order: [['id', 'ASC']],
       });
 
-      const pedidos = await Produto.findAll({ where: { pedidos_id: id } });
+      const pedidos = await Product.findAll({ where: { pedidos_id: id } });
 
       const valid = pedidos.filter(function (result) {
         return result.dataValues;
@@ -44,11 +44,21 @@ export default {
     }
   },
 
+  async getFindAll(req, res) {
+    try {
+      let produto = await Product.findAll();
+
+      return produto;
+    } catch (error) {
+      throw new Error(error)
+    }
+  },
+
   async getById(req, res) {
     let id = req.id;
 
     try {
-      let produto = await Produto.findByPk(id);
+      let produto = await Product.findByPk(id);
 
       return produto;
     } catch (error) {
@@ -61,9 +71,13 @@ export default {
     let body = res
    
     try {
-      const produto = await Produto.findByPk(id);
+      const produto = await Product.findByPk(id);
 
-      await produto.update(body);
+      const { name, valor, quantidade, pedidos_id } = body
+
+      await produto.update({
+        name, valor, quantidade, pedidos_id
+      });
 
       return produto;
     } catch (error) {
@@ -76,7 +90,7 @@ export default {
     let result = {}
 
     try { 
-      const produto = await Produto.destroy({
+      const produto = await Product.destroy({
         where: {
           id: id,
         },

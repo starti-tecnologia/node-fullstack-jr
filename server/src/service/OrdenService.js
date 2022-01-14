@@ -1,13 +1,12 @@
-import Pedido from "../app/models/Pedido";
-import Produto from "../app/models/Produto";
+import Orden from "../app/models/Orden";
+import Product from "../app/models/Product";
 import httpStatus from 'http-status-codes'
 
 export default  {
    
   async save(req, res) {
-    let pedido = req
     try {
-      const create = await Pedido.create(pedido)
+      const create = await Orden.create(req)
 
       return create;
     } catch (error) {
@@ -17,12 +16,12 @@ export default  {
    
   async findAll(req, res) {
     try {
-      const pedido = await Pedido.findAll({
+      const orden = await Orden.findAll({
         order: [['createdAt', 'ASC']],
         include: [
           {
-            model: Produto,
-            as: 'produto',
+            model: Product,
+            as: 'product',
             order: [['createdAt', 'ASC']],
             separate: true,
             attributes: [ 'id', 'name', 'valor', 'quantidade' ],
@@ -30,21 +29,19 @@ export default  {
         ],
       });
 
-      return pedido;
+      return orden;
     } catch (error) {
       throw new Error(error)
     }
   },
    
   async getById(req, res) {
-    let id = req.id
     try {
-
-      let pedido = await Pedido.findByPk(id, {
+      let orden = await Orden.findByPk(req.id, {
         include: [
           {
-            model: Produto,
-            as: 'produto',
+            model: Product,
+            as: 'product',
             order: [['createdAt', 'ASC']],
             separate: true,
             attributes: [ 'id', 'name', 'valor', 'quantidade' ],
@@ -52,22 +49,19 @@ export default  {
         ],
       });
 
-      return pedido;
+      return orden;
     } catch (error) {
       throw new Error(error)
     }
   },
    
   async update(req, res){
-    let id = req.id
-    let body = res
-    
     try {
-      const pedido = await Pedido.findByPk(id);
+      const orden = await Orden.findByPk(req.id);
 
-      await pedido.update(body);
+      await orden.update(res.body);
 
-      return pedido;
+      return orden;
     } catch (error) {
       throw new Error(error)
     }
@@ -76,18 +70,19 @@ export default  {
   async delete(req, res) {
     let result = {}
     let id = req.id
+
     try {
-      const pedido = await Pedido.destroy({
+      const orden = await Orden.destroy({
         where: {
           id: id,
         },
       });
 
-      if (!pedido) {
-        return res.status(400).json({ message: 'Pedido not found' });
+      if (!orden) {
+        return res.status(400).json({ message: 'Orden not found' });
       }
 
-      result = {httpStatus: httpStatus.OK, status: "successful", responseData: pedido}      
+      result = {httpStatus: httpStatus.OK, status: "successful", responseData: orden}      
       return result
     } catch (error) {       
       throw new Error(error)

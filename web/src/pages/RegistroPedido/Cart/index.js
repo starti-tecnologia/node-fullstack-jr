@@ -98,7 +98,7 @@ const Cart = () => {
             </ProductTable>
 
             <footer>
-                <button type="submit">Finalizar Pedido</button>
+                <button type="submit">Add Produto</button>
                 <Total>
                     <span>TOTAL</span>
                     <strong>{moneyFormatter.format(total)}</strong>

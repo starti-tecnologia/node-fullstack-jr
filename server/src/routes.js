@@ -1,30 +1,30 @@
 import { Router } from 'express';
 
-import PedidoController from './app/controller/PedidoController';
-import ProdutoController from './app/controller/ProdutoController';
+import OrdenController from './app/controller/OrdenController';
+import ProductController from './app/controller/ProductController';
 
 const router = new Router();
  
   router
-    .route('/pedido')
-    .post(PedidoController.save)
-    .get(PedidoController.findAll);
+    .route('/orden')
+    .post(OrdenController.save)
+    .get(OrdenController.findAll);
 
   router
-    .route('/pedido/:id')
-    .put(PedidoController.update)
-    .get(PedidoController.getById)
-    .delete(PedidoController.delete);
+    .route('/orden/:id')
+    .put(OrdenController.update)
+    .get(OrdenController.getById)
+    .delete(OrdenController.delete);
 
   router
-    .route('/produto')
-    .post(ProdutoController.save)
-    .get(ProdutoController.findAll);
+    .route('/product')
+    .post(ProductController.save)
+    .get(ProductController.findAll);
 
   router
-    .route('/produto/:id')
-    .put(ProdutoController.update)
-    .get(ProdutoController.getById)
-    .delete(ProdutoController.delete);  
+    .route('/product/:id')
+    .put(ProductController.update)
+    .get(ProductController.getById)
+    .delete(ProductController.delete);  
 
 export default router;

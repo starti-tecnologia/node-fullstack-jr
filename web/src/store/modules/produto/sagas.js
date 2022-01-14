@@ -26,7 +26,7 @@ export function* createProduto({ payload }) {
 
 export function* findAllProduto() {
   try {
-    const response = yield call(api.get, '/produtos');
+    const response = yield call(api.get, '/produto');
 
     yield put(findAllProdutoSuccess(response.data));
   } catch (err) {

@@ -12,11 +12,10 @@ import {
 
 export function* createPedido({ payload }) {
   try {
-    // const result =
-    yield call(api.post, '/pedido', payload.values);
+    const result = yield call(api.post, '/pedido', payload.values);
 
     toast.success('Pedido salvo com sucesso.');
-    // history.push(`/registrePortion/${result.data.id}`)
+    history.push(`/pedido/${result.data.id}`)
   } catch (err) {
     toast.error('Error salvar pedido.');
     yield put(pedidoFailure());
@@ -25,7 +24,7 @@ export function* createPedido({ payload }) {
 
 export function* findAllPedido() {
   try {
-    const response = yield call(api.get, '/pedidos');
+    const response = yield call(api.get, '/pedido');
 
     yield put(findAllPedidoSuccess(response.data));
   } catch (err) {
@@ -49,7 +48,7 @@ export function* updatePedido({ payload }) {
   try {
     yield call(api.put, `/pedido/${payload.data.id}`, payload.data.values);
 
-    const response = yield call(api.get, `/pedidos`);
+    const response = yield call(api.get, `/pedido`);
 
     yield put(findAllPedidoSuccess(response.data));
     toast.success('Editado com sucesso.');
@@ -64,7 +63,7 @@ export function* deletePedido({ payload }) {
   try {
     yield call(api.delete, `/pedido/${payload.data}`);
 
-    const response = yield call(api.get, '/pedidos');
+    const response = yield call(api.get, '/pedido');
 
     yield put(findAllPedidoSuccess(response.data));
     toast.success('Pedido deletado');

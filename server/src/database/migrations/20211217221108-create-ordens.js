@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('pedidos', {
+    return queryInterface.createTable('ordens', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -10,6 +10,10 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
         allowNull: false,
+      },
+      totalCost: {
+        type: Sequelize.DECIMAL,
+        defaultValue: 0,
       },
       email: {
         type: Sequelize.STRING,
@@ -32,6 +36,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.dropTable('pedidos');
+    return queryInterface.dropTable('ordens');
   },
 };

@@ -1,12 +1,12 @@
-import PedidoService from '../../service/PedidoService'
+import OrdenService from '../../service/OrdenService'
 
-class PedidoController {
+class OrdenController {
    
   async save(req, res) {
     let response;     
     try {
 
-      response = await PedidoService.save(req.body);
+      response = await OrdenService.save(req.body);
       return res.status(201).send(response);
         
     } catch (error) {
@@ -17,7 +17,7 @@ class PedidoController {
   async findAll(req, res) {
     let response;      
     try {
-      response = await PedidoService.findAll();
+      response = await OrdenService.findAll();
       return res.status(200).send(response);
         
     } catch (error) {
@@ -28,7 +28,7 @@ class PedidoController {
   async getById(req, res) {
     let response;      
     try {
-      response = await PedidoService.getDetailsId(req.params);
+      response = await OrdenService.getById(req.params);
       return res.status(200).send(response);
         
     } catch (error) {
@@ -39,7 +39,7 @@ class PedidoController {
   async update(req, res) {
     let response;      
     try {
-      response = await PedidoService.update(req.params, req.body);
+      response = await OrdenService.update(req.params, req.body);
       return res.status(200).send(response);
         
     } catch (error) {
@@ -50,7 +50,7 @@ class PedidoController {
   async delete(req, res) {
     let response;      
     try {
-      response = await PedidoService.delete(req.params);
+      response = await OrdenService.delete(req.params);
       return res.status(200).send(response);
         
     } catch (error) {
@@ -58,4 +58,4 @@ class PedidoController {
     }
   }
 }
-export default new PedidoController();
+export default new OrdenController();

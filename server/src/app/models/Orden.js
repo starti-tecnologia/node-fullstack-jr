@@ -1,12 +1,17 @@
 import Sequelize, { Model } from 'sequelize';
 import { STATUS } from './StatusEnum'
 
-class Pedido extends Model {
+class Orden extends Model {
   static init(sequelize) {
     super.init(
       {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
+        totalCost: {
+          type: Number,
+          default: 0,
+          required: true,
+        },
         status: {
           type: String,
           enum: Object.values(STATUS)
@@ -20,8 +25,8 @@ class Pedido extends Model {
     return this;
   }
   static associate(models) {
-    this.hasMany(models.Produto, { foreignKey: 'pedidos_id', as: 'produto' });
+    this.hasMany(models.Product, { foreignKey: 'orden_id', as: 'orden' });
   }
 }
 
-export default Pedido;
+export default Orden;

@@ -1,13 +1,13 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Produto extends Model {
+class Product extends Model {
   static init(sequelize) {
     super.init(
       {
-        pedidos_id: Sequelize.INTEGER,
+        orden_id: Sequelize.INTEGER,
         name: Sequelize.STRING,
-        valor: Sequelize.DECIMAL,
-        quantidade: Sequelize.DECIMAL,
+        price: Sequelize.DECIMAL,
+        amount: Sequelize.DECIMAL,
       },
       {
         sequelize,
@@ -18,4 +18,4 @@ class Produto extends Model {
   }
 }
 
-export default Produto;
+export default Product;

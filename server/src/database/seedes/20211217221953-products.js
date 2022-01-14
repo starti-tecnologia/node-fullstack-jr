@@ -1,37 +1,37 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
     queryInterface.bulkInsert(
-      'produtos',
+      'products',
       [
         {
-          pedidos_id: 1,
+          orden_id: 1,
           name: 'Produto Modelo',
-          valor: 300,
-          quantidade: 2,
+          price: 300,
+          amount: 2,
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          pedidos_id: 1,
+          orden_id: 1,
           name: 'Produto Modelo',
-          valor: 300,
-          quantidade: 2,
+          price: 300,
+          amount: 2,
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          pedidos_id: 2,
+          orden_id: 2,
           name: 'Produto Modelo',
-          valor: 300,
-          quantidade: 2,
+          price: 300,
+          amount: 2,
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          pedidos_id: 2,
+          orden_id: 2,
           name: 'Produto Modelo',
-          valor: 200,
-          quantidade: 2,
+          price: 300,
+          amount: 2,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -39,5 +39,5 @@ module.exports = {
       {}
     ),
 
-  down: (queryInterface) => queryInterface.bulkDelete('produtos', null, {}),
+  down: (queryInterface) => queryInterface.bulkDelete('products', null, {}),
 };

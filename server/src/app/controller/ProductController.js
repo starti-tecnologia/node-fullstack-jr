@@ -1,11 +1,11 @@
-import ProdutoService from '../../service/ProdutoService'
+import ProductService from '../../service/ProductService'
 
-class ProdutoController {
+class ProductController {
    
   async save(req, res) {
     let response;     
     try {
-      response = await ProdutoService.save(req.body);
+      response = await ProductService.save(req.body);
       return res.status(201).send(response);
         
     } catch (error) {
@@ -16,7 +16,7 @@ class ProdutoController {
   async findAll(req, res) {
     let response;      
     try {
-      response = await ProdutoService.findAll(req.params);
+      response = await ProductService.getFindAll();
       return res.status(200).send(response);
         
     } catch (error) {
@@ -27,7 +27,7 @@ class ProdutoController {
   async getById(req, res) {
     let response;      
     try {
-      response = await ProdutoService.getById(req.params);
+      response = await ProductService.getById(req.params);
       return res.status(200).send(response);
         
     } catch (error) {
@@ -38,7 +38,7 @@ class ProdutoController {
   async update(req, res) {
     let response;      
     try {
-      response = await ProdutoService.update(req.params, req.body);
+      response = await ProductService.update(req.params, req.body);
       return res.status(200).send(response);
         
     } catch (error) {
@@ -49,7 +49,7 @@ class ProdutoController {
   async delete(req, res) {
     let response;      
     try {
-      response = await ProdutoService.delete(req.params);
+      response = await ProductService.delete(req.params);
       return res.status(200).send(response);
         
     } catch (error) {
@@ -58,4 +58,4 @@ class ProdutoController {
   }
 }
 
-export default new ProdutoController();
+export default new ProductController();

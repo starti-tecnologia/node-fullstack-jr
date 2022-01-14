@@ -1,12 +1,12 @@
 import { Sequelize } from 'sequelize';
 require('dotenv/config');
 
-import Pedido from '../app/models/Pedido';
-import Produto from '../app/models/Produto';
+import Orden from '../app/models/Orden';
+import Product from '../app/models/Product';
 
 import databaseConfig from '../config/database';
 
-const models = [Pedido, Produto];
+const models = [Orden, Product];
 
 class Database {
   constructor() {

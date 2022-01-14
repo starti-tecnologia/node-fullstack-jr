@@ -67,7 +67,7 @@ import {
                   </Field>
                   <div className="buttons-container">
                     
-                    <button className='salvar' type="submit">Salvar</button>
+                    <button className='salvar' type="submit">Criar Pedido</button>
                   </div>
                 </div> 
               </div>

@@ -23,7 +23,7 @@ const Home = () => {
     const [products, setProducts] = useState([]);
 
     const loadDataFromAPI = useCallback(async () => {
-        const productsFromAPI = await api.get('produtos');
+        const productsFromAPI = await api.get('produto');
 
         setProducts(productsFromAPI.data);
     }, []);
